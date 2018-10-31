@@ -9,12 +9,23 @@ class Wash {
         this.locales = Object.keys(data);
     }
 
+    /**
+     * Normalize case and remove excess whitespace from input string.
+     * @param  {string} phrase Input phrase
+     * @return {string}        Cleaned phrase
+     */
     static clean (phrase) {
         return phrase
             .toLowerCase()
             .replace(/[\s+]+/g, ' ');
     }
 
+    /**
+     * Split input phrase into an array of tokens both with and without
+     * punctuation.
+     * @param  {string} phrase Input phrase
+     * @return {array}         Array of tokens
+     */
     static tokenize (phrase) {
         const withPunctuation = phrase
             .replace('/ {2,}/', ' ')
