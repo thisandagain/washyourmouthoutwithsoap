@@ -29,7 +29,7 @@ class Wash {
 
     /**
      * Returns an array of supported locales.
-     * @return {array} Array of ISO-X-X locales.
+     * @return {array} Array of ISO 639-1 locales.
      */
     supported () {
         return this.locales;
@@ -37,7 +37,7 @@ class Wash {
 
     /**
      * Returns an array of bad words for the specified locale.
-     * @param  {string} locale ISO-X-X locale code
+     * @param  {string} locale ISO 639-1 locale code
      * @return {Array}         Array of bad words
      */
     words (locale) {
@@ -47,7 +47,7 @@ class Wash {
     /**
      * Checks an arbitrary input string against the bad word list for the
      * specified locale.
-     * @param  {string} locale ISO-X-X locale code
+     * @param  {string} locale ISO 639-1 locale code
      * @param  {string} phase  Input phrase
      * @return {boolean}       Does the phrase contain a bad word?
      */

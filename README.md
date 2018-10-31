@@ -7,7 +7,7 @@
 ### Getting the List of Supported Locales
 ```js
 const wash = require('washyourmouthoutwithsoap');
-wash.supported(); // Returns an array of ISO-X-X locale codes
+wash.supported(); // Returns an array of ISO 639-1  locale codes
 ```
 
 ### Checking a String Against the Word List
@@ -87,6 +87,8 @@ npm test
 ```
 
 ## To Build
+While this library requires zero dependencies to run, it does use a build process to generate the large lists of bad words for each language using Google Translate. This data can be regenerated or modified yourself, but you will need to get access to your own [Google Cloud Platform](https://cloud.google.com/) credentials. Once setup, you can build via:
+
 ```bash
 node bin/build.js path/to/credentials.json
 ```
