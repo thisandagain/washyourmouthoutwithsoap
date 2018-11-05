@@ -1,7 +1,7 @@
 ## washyourmouthoutwithsoap
 ### A list of bad words in many languages.
 
-`washyourmouthoutwithsoap` is a simple module that provides a list (or *lists*) of bad words in many languages as well as a simple string matching utility to check arbitrary strings for the existence of words on the list.
+`washyourmouthoutwithsoap` is a simple module that provides a list (or *lists*) of bad words in many languages as well as a simple string matching utility to check arbitrary strings for the existence of words on the list. The source (English) bad word list is based on [Google's Bad Word List](https://github.com/MauriceButler/badwords) originally used in the "What Do You Love" project.
 
 ## Basic Use
 ### Getting the List of Supported Locales
