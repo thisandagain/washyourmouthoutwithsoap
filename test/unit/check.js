@@ -15,6 +15,13 @@ test('false (en)', t => {
     t.end();
 });
 
+test('false (en)', t => {
+    const result = wash.check('en', 'Hello Doug, how are you?');
+    t.type(result, 'boolean');
+    t.false(result);
+    t.end();
+});
+
 test('true (en)', t => {
     const result = wash.check('en', 'The fox was a bit of an asshole.');
     t.type(result, 'boolean');
