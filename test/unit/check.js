@@ -70,3 +70,13 @@ test('true (ru)', t => {
     t.true(result);
     t.end();
 });
+
+test('no false positives for common words', t => {
+    const upResult = wash.check('en', 'what is up with that?');
+    t.type(upResult, 'boolean');
+    t.false(upResult);
+    const commentResult = wash.check('fr', 'comment vas-tu?');
+    t.type(commentResult, 'boolean');
+    t.false(commentResult);
+    t.end();
+});
