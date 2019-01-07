@@ -11,6 +11,7 @@ const en = require('../data/_en.json');
 // Global settings & storage
 const CONCURRENCY_LIMIT = 4;
 const LOCALES = ['sq','hy','eu','be','bg','ca','hr','cs','da','nl','en','et','fi','fr','gl','de','el','hi','hu','is','id','it','ja','kn','ko','la','lv','lt','mk','ms','ml','mt','mr','mn','my','fa','pl','pt','ro','ru','gd','sr','sk','sl','es','sv','te','th','tr','uk','uz','vi','cy','zu'];
+const BASE_LOCALE = 'en';
 const DELIMITER = ':';
 const ERROR_CREDENTIALS = 'Invalid credentials';
 
@@ -29,8 +30,20 @@ const q = async.queue(function (job, callback) {
         if (typeof val !== 'undefined') return callback();
         if (typeof err.notFound === 'undefined') return callback(err);
 
+        // Explicitly set source and destination languages
+        const options = {
+          from: BASE_LOCALE,
+          to: job.locale
+        };
+
+        // For output in the base locale, do not translate
+        if (job.locale === BASE_LOCALE) {
+          db.put(key, job.word.toLowerCase(), callback);
+          return;
+        }
+
         // Translate
-        client.translate(job.word, job.locale, (err, result) => {
+        client.translate(job.word, options, (err, result) => {
             if (err) return callback(err);
             if (typeof result !== 'string') return callback();
 
